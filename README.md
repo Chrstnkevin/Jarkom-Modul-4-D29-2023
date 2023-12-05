@@ -71,3 +71,7 @@ Selanjutnya hitung NID dan Broadcast dan didapatkan hasil sebagai berikut
 | A19    | 10.36.24.144 | /30 (255.255.255.252) | 10.36.24.147   |
 | A9     | 10.36.24.148 | /30 (255.255.255.252) | 10.36.24.151   |
 
+Setelah mendapatkan semua yang dibutuhkan, langkah selanjutnya yaitu membuat **Routing**
+### Router Utama (Aura)
+
+
