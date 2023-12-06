@@ -1,4 +1,4 @@
-# Jarkom-Modul-4-D29-2023
+<img width="1272" alt="TREE" src="https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/69492b21-104a-474e-8add-99b61a05f8fd"># Jarkom-Modul-4-D29-2023
 | Nama           | NRP            |
 | ---------------| ---------------|
 | Christian Kevin Emor      | 5025211153      |
@@ -104,6 +104,10 @@ langkah pertama yang harus dilakukan adalah melakukan subnetting.
 
 ### Penggabungan Kesembilan
 ![9](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/f0fa5a9c-008b-4485-8779-b9f2eba81ff2)
+
+### TREE
+<img width="1272" alt="TREE" src="https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/760ba2dd-8e1f-42af-908d-799fa72a8719">
+
 
 
 
