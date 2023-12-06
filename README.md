@@ -75,3 +75,54 @@ Setelah mendapatkan semua yang dibutuhkan, langkah selanjutnya yaitu membuat **R
 ### Router Utama (Aura)
 
 
+# GNS3
+langkah pertama yang harus dilakukan adalah melakukan subnetting.
+
+### Penggabungan Pertama
+![1](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/d5fa5218-3613-414e-aed2-e0f192f30753)
+
+### Penggabungan Kedua
+![2](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/89f8daaa-b45c-49e6-b0f4-914d7d5727ee)
+
+### Penggabungan Ketiga
+![3](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/12200854-0bb8-4943-8028-c09ed43cb204)
+
+### Penggabungan Keempat
+![4](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/727e811e-60f5-4d2c-b29c-e5619ed36ad8)
+
+### Penggabungan Kelima
+![5](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/e8f318f6-3c0f-40e0-918e-2c7b7c5813a8)
+
+### Penggabungan Keenam
+![6](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/86545f4f-a7a7-490e-acf6-da14915d9e8a)
+
+### Penggabungan Ketujuh
+![7](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/dafc4a1c-6dd1-45fe-8cf1-bfd4cc5629e4)
+
+### Penggabungan Kedelapan
+![8](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/6eabd3d3-7450-40cc-bb3f-f0c5bb786ccc)
+
+### Penggabungan Kesembilan
+![9](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/f0fa5a9c-008b-4485-8779-b9f2eba81ff2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
