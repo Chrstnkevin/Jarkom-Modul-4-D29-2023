@@ -1,4 +1,4 @@
-<img width="1272" alt="TREE" src="https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/110340182/69492b21-104a-474e-8add-99b61a05f8fd"># Jarkom-Modul-4-D29-2023
+# Jarkom-Modul-4-D29-2023
 | Nama           | NRP            |
 | ---------------| ---------------|
 | Christian Kevin Emor      | 5025211153      |
