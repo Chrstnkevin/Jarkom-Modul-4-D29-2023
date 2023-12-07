@@ -163,7 +163,11 @@ Setelah router berhasil disettiing semua langkah selanjutnya yaitu melakukan set
 cara melakukan konfigurasi di client/server yaitu buka client yang dituju -> Desktop -> IP Configuration -> masukkan ip yang didapatkan
 ![image](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/97864068/d80dcb9b-0dfe-400c-ab24-a71e7fd9793e)
 
+Static Routing :
+Kita perlu melakukan routing pada seluruh Router. Langkah-langkah melakukan routing, sebagai berikut :
 
+Pilih Router yang akan diberi route dengan cara "Klik" pada router tersebut. (Ex: Router Frieren)
+Pada menu "Config", terdapat "Routing", kemudian klik "Static" untuk menambahkan route pada Router yang terdiri dari Network, Mask, dan Next Hop. Isi satu persatu route, kemudian klik "Add" hingga seluruh route dari router tersebut ditambahkan.
 
 
 
