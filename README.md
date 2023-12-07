@@ -18,28 +18,29 @@ Setelah berhasil membuat topologi, selanjutnya akan dikelompokkan subnet yang ad
 
 | Nama Subnet | Rute | Jumlah IP (Terbanyak ke Tersedikit) | Netmask |
 |-------------|------|-------------------------------------|---------|
-| A6          | Aura - Frieren - Flamme - Fern - Switch4 - LaubHills - Switch4 - AppetitRegion | 1023 | /21 |
-| A3          | Aura - Frieren - Flamme - Switch5 - RohrRoad | 1001 | /22 |
-| A15         | Aura - Eisen - Lugner - Switch10 - TurkRegion | 1001 | /22 |
-| A21         | Aura - Eisen - Linie - Lawine - Switch7 - Heiter - Switch8 - Sein - Switch8 - RiegelCanyon | 512 | /22 |
-| A18         | Aura - Eisen - Lugner - Switch11 - GranzChannel | 255 | /23 |
-| A16         | Aura - Eisen - Lugner - Switch9 - GrobeForest | 251 | /24 |
-| A10         | Aura - Denken - Switch2 - RoyalCapital - Switch2 - WilleRegion | 127 | /24 |
-| A20         | Aura - Eisen - Linie - Lawine - Switch7 - BredtRegion | 31 | /26 |
-| A4          | Aura - Frieren - Switch3 - LakeKorridor | 25 | /27 |
-| A8          | Aura - Frieren - Flamme - Himmel - Switch6 - SchwerMountains | 6 | /29 |
-| A12         | Aura - Eisen - Switch1 - Richter - Switch1 - Revolte | 3 | /29 |
+| A6          | Fern - Switch4 - LaubHills - Switch4 - AppetitRegion | 1023 | /21 |
+| A3          | Flamme - Switch5 - RohrRoad | 1001 | /22 |
+| A15         | Lugner - Switch10 - TurkRegion | 1001 | /22 |
+| A21         | Heiter - Switch8 - Sein - Switch8 - RiegelCanyon | 512 | /22 |
+| A18         | Linie - Switch11 - GranzChannel | 255 | /23 |
+| A16         | Lugner - Switch9 - GrobeForest | 251 | /24 |
+| A10         | Denken - Switch2 - RoyalCapital - Switch2 - WilleRegion | 127 | /24 |
+| A20         | Lawine - Switch7 - BredtRegion - switch7 - heitter | 31 | /26 |
+| A4          | Frieren - Switch3 - LakeKorridor | 25 | /27 |
+| A8          | Himmel - Switch6 - SchwerMountains | 6 | /29 |
+| A12         | Eisen - Switch1 - Richter - Switch1 - Revolte | 3 | /29 |
 | A1          | Aura - Frieren | 2 | /30 |
-| A2          | Aura - Frieren - Flamme | 2 | /30 |
-| A5          | Aura - Frieren - Flamme - Ferm | 2 | /30 |
-| A7          | Aura - Frieren - Flamme - Himmel | 2 | /30 |
+| A2          | Frieren - Flamme | 2 | /30 |
+| A5          | Flamme - Ferm | 2 | /30 |
+| A7          | Flamme - Himmel | 2 | /30 |
 | A11         | Aura - Eisen | 2 | /30 |
-| A13         | Aura - Eisen - Switch0 - Stark | 2 | /30 |
-| A14         | Aura - Eisen - Lugner | 2 | /30 |
-| A17         | Aura - Eisen - Linie | 2 | /30 |
-| A19         | Aura - Eisen - Linie - Lawine | 2 | /30 |
+| A13         | Eisen - Switch0 - Stark | 2 | /30 |
+| A14         | Eisen - Lugner | 2 | /30 |
+| A17         | Eisen - Linie | 2 | /30 |
+| A19         | Linie - Lawine | 2 | /30 |
 | A9          | Aura - Denken | 2 | /30 |
-| **Total**   |      | **4255** | **/19** |
+| **Total**   |      | **4253** | **/19** |
+
 
 Setelah mengetahui pembagian subnet serta mendapatkan Netmask yang diperlukan, langkah selanjutnya adalah membuat tree untuk mengetahui IP yang akan dimasukkan ke CPT
 
@@ -71,8 +72,99 @@ Selanjutnya hitung NID dan Broadcast dan didapatkan hasil sebagai berikut
 | A19    | 10.36.24.144 | /30 (255.255.255.252) | 10.36.24.147   |
 | A9     | 10.36.24.148 | /30 (255.255.255.252) | 10.36.24.151   |
 
-Setelah mendapatkan semua yang dibutuhkan, langkah selanjutnya yaitu membuat **Routing**
-### Router Utama (Aura)
+Setelah mendapatkan semua yang dibutuhkan, langkah selanjutnya yaitu melakukan konfigurasi pada router CPT
+
+| Router  | Interface | IPV4          | Subnet Mask         | Tujuan     |
+|---------|-----------|---------------|---------------------|------------|
+| **Aura**| FE 0/1    | 10.36.24.149  | 255.255.255.252     | Denken     |
+|         | FE 1/0    | 10.36.24.129  | 255.255.255.252     | Eisen      |
+|         | FE 1/1    | 10.36.24.113  | 255.255.255.252     | Frieren    |
+|         |           |               |                     |            |
+| **Frieren** | FE 0/0    | 10.36.24.65   | 255.255.255.224 | Switch     |
+|         | FE 0/1    | 10.36.24.117  | 255.255.255.252     | Flamme     |
+|         | FE 1/0    | 10.36.24.114  | 255.255.255.252     | Aura       |
+|         |           |               |                     |            |
+| **Flamme** | FE 0/0    | 10.36.24.118  | 255.255.255.252     | Frieren    |
+|         | FE 0/1    | 10.36.24.121  | 255.255.255.252     | Fern       |
+|         | E 1/0     | 10.36.24.125  | 255.255.255.252     | Himmel     |
+|         | E 1/1     | 10.36.8.1     | 255.255.252.0       | Switch     |
+|         |           |               |                     |            |
+| **Fern** | FE 0/0    | 10.36.24.122  | 255.255.255.252     | Flamme     |
+|         | FE 0/1    | 10.36.0.1     | 255.255.248.0       | Switch     |
+|         |           |               |                     |            |
+| **Himmel** | FE 0/0  | 10.36.24.97   | 255.255.255.248     | Switch     |
+|         | FE 0/1    | 10.36.24.126  | 255.255.255.252     | Flamme     |
+|         |           |               |                     |            |
+| **Denken** | FE 0/0  | 10.36.24.150  | 255.255.255.252     | Aura       |
+|         | FE 0/1    | 10.36.23.1    | 255.255.255.0       | Switch     |
+|         |           |               |                     |            |
+| **Eisen** | FE 0/0   | 10.36.24.133  | 255.255.255.252     | Switch 0   |
+|         | FE 0/1    | 10.36.24.137  | 255.255.255.252     | Lugner     |
+|         | E 1/0     | 10.36.24.130  | 255.255.255.252     | Aura       |
+|         | E 1/1     | 10.36.24.141  | 255.255.255.252     | Linie      |
+|         | E 1/2     | 10.36.24.105  | 255.255.255.248     | Switch 1   |
+|         |           |               |                     |            |
+| **Lugner** | FE 0/0  | 10.36.24.138  | 255.255.255.252     | Eisen      |
+|         | FE 0/1    | 10.36.12.1    | 255.255.252.0       | Switch 10  |
+|         | E 1/0     | 10.36.22.1    | 255.255.255.0       | Switch 9   |
+|         |           |               |                     |            |
+| **Linie** | FE 0/0   | 10.36.20.1    | 255.255.254.0       | Switch 11  |
+|         | FE 0/1    | 10.36.24.145  | 255.255.255.252     | Lawine     |
+|         | FE 1/0    | 10.36.24.142  | 255.255.255.252     | Eisen      |
+|         |           |               |                     |            |
+| **Lawine** | FE 0/0 | 10.36.24.1    | 255.255.255.192     | Switch     |
+|         | FE 0/1    | 10.36.24.146  | 255.255.255.252     | Linie      |
+|         |           |               |                     |            |
+| **Heiter** | FE 0/0 | 10.36.16.1    | 255.255.252.0       | Switch     |
+|         | FE 0/1    | 10.36.24.3    | 255.255.255.192     | Switch 7   |
+
+untuk cara melakukannya adalah sebagai berikut:
+1. Masuk kesalah satu router yang ingin di setting (Ex: Aura)
+
+   ![image](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/97864068/ebc910a8-13d4-4401-b73c-fcf008d0a248)
+
+2. Pada Interface, masukkan IPv4 serta netmask yang telah diperoleh
+
+   ![image](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/97864068/fb2dad3e-3249-4ea6-9566-ecaea5c91da5)
+
+3. Setelah selesai, ulangi hal yang sama terhadap semua router
+
+Setelah router berhasil disettiing semua langkah selanjutnya yaitu melakukan setting di client/server
+
+| Client/Server  | DefGateway   | Router  | IPv4         | Subnet Mask       |
+|----------------|--------------|---------|--------------|-------------------|
+| **LakeKorridor** | 10.36.24.65  | Frieren | 10.36.24.66 | 255.255.255.224  |
+|                |              |         |              |                   |
+| **RohrRoad**    | 10.36.8.1    | Flamme  | 10.36.8.2   | 255.255.252.0    |
+|                |              |         |              |                   |
+| **LaubHills**   | 10.36.0.1    | Fern    | 10.36.0.2   | 255.255.248.0    |
+| **AppetitRegion**|             | Fern    | 10.36.0.3   | 255.255.248.0    |
+|                |              |         |              |                   |
+| **SchwerMountains** | 10.36.24.97 | Himmel  | 10.36.24.98 | 255.255.255.248  |
+|                |              |         |              |                   |
+| **RoyalCapital** | 10.36.23.1   | Denken  | 10.36.23.2  | 255.255.255.0    |
+| **WilleRegion**  |             | Denken  | 10.36.23.3  | 255.255.255.0    |
+|                |              |         |              |                   |
+| **Richter**     | 10.36.24.105 | Eisen   | 10.36.24.106| 255.255.255.248  |
+| **Revolter**    |              | Eisen   | 10.36.24.107| 255.255.255.248  |
+|                |              |         |              |                   |
+| **Stark**       | 10.36.24.133 | Eisen   | 10.36.24.134| 255.255.255.252  |
+|                |              |         |              |                   |
+| **TurkRegion**  | 10.36.12.1   | Lugner  | 10.36.12.2  | 255.255.252.0    |
+| **GrobeForest** | 10.36.22.1   |         | 10.36.22.2  | 255.255.255.0    |
+|                |              |         |              |                   |
+| **GranzChannel**| 10.36.20.1   | Linie   | 10.36.20.2  | 255.255.254.0    |
+|                |              |         |              |                   |
+| **BredtRegion** | 10.36.24.1   | Lawine  | 10.36.24.2  | 255.255.255.192  |
+|                |              |         |              |                   |
+| **Sein**       | 10.36.16.1   | Heiter  | 10.36.16.2  | 255.255.252.0    |
+| **RiegelCanyon**| 10.36.16.1  |         | 10.36.16.3  | 255.255.252.0    |
+
+cara melakukan konfigurasi di client/server yaitu buka client yang dituju -> Desktop -> IP Configuration -> masukkan ip yang didapatkan
+![image](https://github.com/Chrstnkevin/Jarkom-Modul-4-D29-2023/assets/97864068/d80dcb9b-0dfe-400c-ab24-a71e7fd9793e)
+
+
+
 
 
 # GNS3
